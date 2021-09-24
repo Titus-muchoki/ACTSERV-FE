@@ -1,10 +1,21 @@
 import React from 'react'
-
+import { Navbar,Nav,Container,Row } from 'react-bootstrap'
 function Header() {
   return (
-    <div>
-      <header>header</header>
-    </div>
+    <header>
+<Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect>
+  <Container>
+    <Navbar.Brand href="/">ACTSERV</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="me-auto">
+        <Nav.Link href="/">Home</Nav.Link>
+        <Nav.Link href="/login">Login</Nav.Link>
+        
+      </Nav>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>    </header>
   )
 }
 
