@@ -1,14 +1,18 @@
+import { Container } from 'react-bootstrap'
 import Header from './components/Header'
 import Footer from './components/Footer'
 function App() {
   return (
     <div >
-      <Header/>
-     <main>
-<h1>Welcome to My App</h1>
+      <Header />
+      <main className='py-3'>
+        <Container>
+          <h1 className='text-center'>Welcome to My App</h1>
 
-     </main>
-     <Footer/>
+        </Container>
+
+      </main>
+      <Footer />
     </div>
   );
 }
