@@ -3,14 +3,22 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import {
   userLoginReducer,
+  userTokenReducer
 } from './reducers/userReducer'
 
 const reducer = combineReducers({
 
-  userLogin: userLoginReducer
+  userLogin: userLoginReducer,
+  userToken:userTokenReducer
 })
 
-const initialState = {}
+
+const jwtFromStorage = localStorage.getItem('jwt') ?
+  JSON.parse(localStorage.getItem('jwt')) : null
+
+const initialState = {
+  userToken: { jwt: jwtFromStorage },
+}
 
 
 const middleware = [thunk]

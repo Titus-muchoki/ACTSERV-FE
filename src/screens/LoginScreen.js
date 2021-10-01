@@ -18,14 +18,25 @@ function LoginScreen({ location, history }) {
 
   const userLogin = useSelector(state => state.userLogin)
 
-  const { error, loading, details} = userLogin
+  const { error, loading, details } = userLogin
 
 
+  const userToken = useSelector(state => state.userToken)
+
+  const { jwt } = userToken
+
+
+  useEffect(() => {
+    if (jwt) {
+      history.push(redirect)
+    }
+  }, [history, jwt, redirect])
 
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(loginTokenRequest(email,))
-    
+    history.push(`/token/?email=${email}`)
+
 
 
   }
