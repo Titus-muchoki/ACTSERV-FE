@@ -3,10 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/loader'
 import Message from '../components/message'
 import { getUserDetails, } from '../actions/userActions'
+
 function HomeScreen({location,history}) {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
+
   const dispatch = useDispatch()
+  
   const redirect = location.search ? location.search.split('=')[1] : '/login'
 
   const userToken = useSelector(state => state.userToken)

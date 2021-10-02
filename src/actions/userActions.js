@@ -19,6 +19,10 @@ import {
   USER_DETAILS_FAIL,
   USER_DETAILS_RESET,
 
+  VERIFY_EMAIL_REQUEST,
+  VERIFY_EMAIL_SUCCESS,
+  VERIFY_EMAIL_FAIL,
+
 } from '../constants/userConstants'
 
 
@@ -184,3 +188,34 @@ export const getUserDetails = () => async (dispatch, getState) => {
 }
 
 
+export const emailVerifyRequest = (id) => async (dispatch) => {
+  try {
+    dispatch({
+      type: VERIFY_EMAIL_REQUEST
+    })
+
+    const config = {
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }
+
+    const { data } = await axios.patch(`http://127.0.0.1:8000/api/users/activate/${id}/`,
+       config
+    )
+
+    dispatch({
+      type: VERIFY_EMAIL_SUCCESS,
+      payload: data
+    })
+
+  } catch (error) {
+    dispatch({
+      type: VERIFY_EMAIL_FAIL,
+      payload: error.response && error.response.data.detail
+        ? error.response.data.detail
+        : error.message,
+
+    })
+  }
+}

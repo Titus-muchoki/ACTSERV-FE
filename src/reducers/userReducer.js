@@ -20,7 +20,9 @@ import {
   USER_DETAILS_FAIL,
   USER_DETAILS_RESET,
 
-
+  VERIFY_EMAIL_REQUEST,
+  VERIFY_EMAIL_SUCCESS,
+  VERIFY_EMAIL_FAIL,
 } from '../constants/userConstants'
 
 
@@ -109,6 +111,29 @@ export const userDetailsReducer = (state = { user: {} }, action) => {
 
     case USER_DETAILS_RESET:
       return { user: {} }
+
+
+    default:
+      return state
+
+
+
+  }
+}
+
+
+
+export const emailVerifyReducer = (state = {}, action) => {
+  switch (action.type) {
+    case VERIFY_EMAIL_REQUEST:
+      return { loading: true }
+
+    case VERIFY_EMAIL_SUCCESS:
+      return { loading: false, details: action.payload }
+
+    case VERIFY_EMAIL_FAIL:
+      return { loading: false, error: action.payload }
+
 
 
     default:

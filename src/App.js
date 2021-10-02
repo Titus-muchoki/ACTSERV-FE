@@ -6,6 +6,8 @@ import HomeScreen from './screens/HomeScreen'
 import LoginScreen from './screens/LoginScreen'
 import TokenScreen from './screens/TokenScreen'
 import RegisterScreen from './screens/RegisterScreen'
+import WaitEmailScreen from './screens/WaitEmailScreen'
+import VerifyScreen from './screens/VerifyScreen'
 function App() {
   return (
     <Router>
@@ -16,6 +18,8 @@ function App() {
         <Route path='/login' component={LoginScreen}  />
         <Route path='/token' component={TokenScreen}  />
         <Route path='/register' component={RegisterScreen}  />
+        <Route path='/emailcheck' component={WaitEmailScreen}  />
+        <Route path='/verifyemail/:id?' component={VerifyScreen}  />
         </Container>
 
       </main>

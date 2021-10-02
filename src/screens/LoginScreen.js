@@ -18,7 +18,7 @@ function LoginScreen({ location, history }) {
 
   const userLogin = useSelector(state => state.userLogin)
 
-  const { error, loading, details } = userLogin
+  const { error, loading, details,success } = userLogin
 
 
   const userToken = useSelector(state => state.userToken)
@@ -36,7 +36,7 @@ function LoginScreen({ location, history }) {
     e.preventDefault()
     dispatch(loginTokenRequest(email,))
     history.push(`/token/?email=${email}`)
-
+    
 
 
   }

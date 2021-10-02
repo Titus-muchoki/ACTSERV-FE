@@ -6,6 +6,7 @@ import {
   userTokenReducer,
   userRegisterReducer,
   userDetailsReducer,
+  emailVerifyReducer
 } from './reducers/userReducer'
 
 const reducer = combineReducers({
@@ -14,6 +15,8 @@ const reducer = combineReducers({
   userToken: userTokenReducer,
   userRegister: userRegisterReducer,
   userDetails: userDetailsReducer,
+  emailVerify:emailVerifyReducer
+
 })
 
 

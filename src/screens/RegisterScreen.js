@@ -6,7 +6,6 @@ import Loader from '../components/loader'
 import Message from '../components/message'
 import FormContainer from '../components/FormContainer'
 import { register } from '../actions/userActions'
-import PhoneInput from 'react-phone-number-input/input'
 
 
 function RegisterScreen({ location, history }) {
@@ -30,6 +29,7 @@ function RegisterScreen({ location, history }) {
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(register(username, email, mobile))
+    history.push('/emailcheck')
 
   }
 
@@ -77,17 +77,7 @@ function RegisterScreen({ location, history }) {
           ></Form.Control>
         </Form.Group>
 
-{/* 
-        <Form.Group controlId='mobile'>
-          <Form.Label>Enter Mobile Number (optional)</Form.Label>
 
-          <PhoneInput
-            className='form-control'
-            country="KEN"
-            value={mobile}
-            onChange={setMobile} />
-
-        </Form.Group> */}
 
         <br />
         
