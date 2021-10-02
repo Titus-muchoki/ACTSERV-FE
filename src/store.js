@@ -4,22 +4,28 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import {
   userLoginReducer,
   userTokenReducer,
-  userRegisterReducer
+  userRegisterReducer,
+  userDetailsReducer,
 } from './reducers/userReducer'
 
 const reducer = combineReducers({
 
   userLogin: userLoginReducer,
-  userToken:userTokenReducer,
+  userToken: userTokenReducer,
   userRegister: userRegisterReducer,
+  userDetails: userDetailsReducer,
 })
 
 
 const jwtFromStorage = localStorage.getItem('jwt') ?
   JSON.parse(localStorage.getItem('jwt')) : null
 
+const userFromStorage = localStorage.getItem('user') ?
+  JSON.parse(localStorage.getItem('user')) : null
+
 const initialState = {
   userToken: { jwt: jwtFromStorage },
+  userDetails: { user: userFromStorage },
 }
 
 
