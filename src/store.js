@@ -3,10 +3,12 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import {
   userLoginReducer,
+  mobileLoginReducer,
   userTokenReducer,
   userRegisterReducer,
   userDetailsReducer,
   emailVerifyReducer
+
 } from './reducers/userReducer'
 
 const reducer = combineReducers({
@@ -15,7 +17,8 @@ const reducer = combineReducers({
   userToken: userTokenReducer,
   userRegister: userRegisterReducer,
   userDetails: userDetailsReducer,
-  emailVerify:emailVerifyReducer
+  emailVerify:emailVerifyReducer,
+  mobileLogin:mobileLoginReducer,
 
 })
 

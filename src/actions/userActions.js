@@ -6,6 +6,11 @@ import {
 
   USER_LOGOUT,
 
+
+  MOBILE_LOGIN_REQUEST,
+  MOBILE_LOGIN_SUCCESS,
+  MOBILE_LOGIN_FAIL,
+
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
   USER_REGISTER_FAIL,
@@ -60,6 +65,39 @@ export const loginTokenRequest = (email) => async (dispatch) => {
   }
 }
 
+
+export const mobileLoginTokenRequest = (mobile) => async (dispatch) => {
+  try {
+    dispatch({
+      type: MOBILE_LOGIN_REQUEST
+    })
+
+    const config = {
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }
+
+    const { data } = await axios.post('http://127.0.0.1:8000/auth/mobile/',
+      { 'mobile': mobile }, config
+    )
+
+    dispatch({
+      type: MOBILE_LOGIN_SUCCESS,
+      payload: data
+    })
+
+
+  } catch (error) {
+    dispatch({
+      type: MOBILE_LOGIN_FAIL,
+      payload: error.response && error.response.data.detail
+        ? error.response.data.detail
+        : error.message,
+
+    })
+  }
+}
 
 
 export const loginJwtTokenRequest = (email, token) => async (dispatch) => {

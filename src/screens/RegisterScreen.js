@@ -67,7 +67,7 @@ function RegisterScreen({ location, history }) {
 
 
         <Form.Group controlId='mobile'>
-          <Form.Label>Email Mobile Number</Form.Label>
+          <Form.Label> Mobile Number</Form.Label>
           <Form.Control
             required
             type=''

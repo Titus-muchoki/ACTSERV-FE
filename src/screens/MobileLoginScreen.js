@@ -6,20 +6,20 @@ import Loader from '../components/loader'
 import Message from '../components/message'
 import FormContainer from '../components/FormContainer'
 import LoginOption from '../components/LoginOption'
-import { loginTokenRequest } from '../actions/userActions'
+import { mobileLoginTokenRequest } from '../actions/userActions'
 
 
 function LoginScreen({ location, history }) {
-  const [email, setEmail] = useState('')
+  const [mobile, setMobile] = useState('')
 
 
   const dispatch = useDispatch()
 
   const redirect = location.search ? location.search.split('=')[1] : '/'
 
-  const userLogin = useSelector(state => state.userLogin)
+  const mobileLogin = useSelector(state => state.mobileLogin)
 
-  const { error, loading, details,success } = userLogin
+  const { error, loading, details,success } = mobileLogin
 
 
   const userToken = useSelector(state => state.userToken)
@@ -35,8 +35,8 @@ function LoginScreen({ location, history }) {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    dispatch(loginTokenRequest(email,))
-    history.push(`/token/?email=${email}`)
+    dispatch(mobileLoginTokenRequest(mobile,))
+    history.push(`/token/?mobile=${mobile}`)
     
 
 
@@ -45,19 +45,20 @@ function LoginScreen({ location, history }) {
   return (
     <FormContainer>
       <LoginOption/>
-      <h4>Sign In Using Email</h4>
+      <h4>Sign In Using Mobile</h4>
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
 
-        <Form.Group controlId='email'>
-          <Form.Label>Email Address</Form.Label>
+     
+      <Form.Group controlId='mobile'>
+          <Form.Label> Mobile Number</Form.Label>
           <Form.Control
             required
-            type='email'
-            placeholder='Enter Email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type=''
+            placeholder='Enter mobile number in the forma (+254)'
+            value={mobile}
+            onChange={(e) => setMobile(e.target.value)}
           ></Form.Control>
         </Form.Group>
 <br/>

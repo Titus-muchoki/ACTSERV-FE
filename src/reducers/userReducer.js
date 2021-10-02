@@ -14,6 +14,9 @@ import {
   USER_TOKEN_SUCCESS,
   USER_TOKEN_FAIL,
 
+  MOBILE_LOGIN_REQUEST,
+  MOBILE_LOGIN_SUCCESS,
+  MOBILE_LOGIN_FAIL,
 
   USER_DETAILS_REQUEST,
   USER_DETAILS_SUCCESS,
@@ -42,6 +45,28 @@ export const userLoginReducer = (state = {}, action) => {
 
     case USER_LOGOUT:
       return {}
+
+    default:
+      return state
+
+
+
+  }
+}
+
+
+export const mobileLoginReducer = (state = {}, action) => {
+  switch (action.type) {
+    case MOBILE_LOGIN_REQUEST:
+      return { loading: true }
+
+    case MOBILE_LOGIN_SUCCESS:
+      return { loading: false, success: true, details: action.payload }
+
+    case MOBILE_LOGIN_FAIL:
+      return { loading: false, error: action.payload }
+
+  
 
     default:
       return state
