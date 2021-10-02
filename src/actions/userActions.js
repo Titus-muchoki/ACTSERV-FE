@@ -129,6 +129,18 @@ export const register = (username, email, mobile) => async (dispatch) => {
 }
 
 
+
+export const logout = () => (dispatch) => {
+  localStorage.removeItem('jwt')
+  localStorage.removeItem('user')
+  dispatch({ type: USER_LOGOUT })
+  dispatch({ type: USER_DETAILS_RESET })
+
+
+
+}
+
+
 export const getUserDetails = () => async (dispatch, getState) => {
   try {
     dispatch({

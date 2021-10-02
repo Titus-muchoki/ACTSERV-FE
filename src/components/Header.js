@@ -1,22 +1,63 @@
 import React from 'react'
-import { Navbar,Nav,Container,Row } from 'react-bootstrap'
+import { Route , withRouter} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
+import { logout } from '../actions/userActions'
+
+
 function Header() {
+  const userDetails = useSelector(state => state.userDetails)
+  const { user } = userDetails
+  const dispatch = useDispatch()
+
+  const logoutHandler = () => {
+    dispatch(logout())
+
+  }
+
+
   return (
+
     <header>
-<Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect>
-  <Container>
-    <Navbar.Brand href="/">ACTSERV</Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="me-auto">
-        <Nav.Link href="/">Home</Nav.Link>
-        <Nav.Link href="/login">Login</Nav.Link>
-        
-      </Nav>
-    </Navbar.Collapse>
-  </Container>
-</Navbar>    </header>
+      <Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect>
+        <Container>
+          <LinkContainer to='/'>
+            <Navbar.Brand >ACTSERV</Navbar.Brand>
+          </LinkContainer>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+          
+
+              {user ? (
+                <NavDropdown title={user.username} id='username'>
+             
+                  <NavDropdown.Item onClick={logoutHandler}>
+                    Logout
+                  </NavDropdown.Item>
+
+
+                </NavDropdown>
+              ) :
+
+                (<LinkContainer to='/login'>
+                  <Nav.Link ><i className="fas fa-user"></i> Login</Nav.Link>
+                </LinkContainer >)
+              }
+
+  
+            </Nav>
+
+
+          </Navbar.Collapse>
+        </Container>
+
+
+
+      </Navbar></header>
+
   )
 }
 
-export default Header
+export default withRouter( Header)
