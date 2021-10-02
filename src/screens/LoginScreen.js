@@ -43,7 +43,7 @@ function LoginScreen({ location, history }) {
 
   return (
     <FormContainer>
-      <h1>Sign In</h1>
+      <h4>Sign In Using Email</h4>
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
@@ -58,11 +58,7 @@ function LoginScreen({ location, history }) {
             onChange={(e) => setEmail(e.target.value)}
           ></Form.Control>
         </Form.Group>
-
-
-
-
-
+<br/>
         <Button type='submit' variant='primary'>
           Sign In
         </Button>

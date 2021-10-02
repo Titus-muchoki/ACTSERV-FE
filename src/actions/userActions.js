@@ -6,7 +6,9 @@ import {
 
   USER_LOGOUT,
 
-
+  USER_REGISTER_REQUEST,
+  USER_REGISTER_SUCCESS,
+  USER_REGISTER_FAIL,
 
   USER_TOKEN_REQUEST ,
   USER_TOKEN_SUCCESS ,
@@ -76,6 +78,43 @@ export const loginJwtTokenRequest = (email,token) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: USER_TOKEN_FAIL,
+      payload: error.response && error.response.data.detail
+        ? error.response.data.detail
+        : error.message,
+
+    })
+  }
+}
+
+
+
+export const register = ( username,email, mobile) => async (dispatch) => {
+  try {
+    dispatch({
+      type: USER_REGISTER_REQUEST
+    })
+
+    const config = {
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }
+
+    const { data } = await axios.post('http://127.0.0.1:8000/api/users/register/',
+      { 'username': username, 'email': email, 'mobile': mobile }, config
+    )
+
+    dispatch({
+      type: USER_REGISTER_SUCCESS,
+      payload: data
+    })
+
+
+
+
+  } catch (error) {
+    dispatch({
+      type: USER_REGISTER_FAIL,
       payload: error.response && error.response.data.detail
         ? error.response.data.detail
         : error.message,
