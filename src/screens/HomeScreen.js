@@ -21,7 +21,7 @@ function HomeScreen({location,history}) {
 
 
   useEffect(() => {
-
+    localStorage.removeItem('email')
     if (!jwt) {
       history.push('/login')
     }

@@ -12,6 +12,8 @@ import {
 
 } from './reducers/userReducer'
 
+import {autoLoginReducer} from './reducers/autoLoginReducers'
+
 const reducer = combineReducers({
 
   userLogin: userLoginReducer,
@@ -21,6 +23,8 @@ const reducer = combineReducers({
   emailVerify:emailVerifyReducer,
   mobileLogin:mobileLoginReducer,
   mobileToken:mobileTokenReducer,
+
+  autoLogin:autoLoginReducer
 
 })
 

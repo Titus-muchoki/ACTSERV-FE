@@ -37,7 +37,7 @@ function LoginScreen({ location, history }) {
     e.preventDefault()
     dispatch(loginTokenRequest(email,))
     history.push(`/token/?email=${email}`)
-    
+    localStorage.setItem('email', JSON.stringify(email))    
 
 
   }

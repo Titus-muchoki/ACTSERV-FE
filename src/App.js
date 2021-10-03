@@ -10,6 +10,7 @@ import MobileTokenScreen from './screens/MobileTokenScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import WaitEmailScreen from './screens/WaitEmailScreen'
 import VerifyScreen from './screens/VerifyScreen'
+import AutoLoginScreen from './screens/AutoLoginScreen'
 function App() {
   return (
     <Router>
@@ -24,6 +25,7 @@ function App() {
         <Route path='/register' component={RegisterScreen}  />
         <Route path='/emailcheck' component={WaitEmailScreen}  />
         <Route path='/verifyemail/:id?' component={VerifyScreen}  />
+        <Route path='/autologin' component={AutoLoginScreen}  />
         </Container>
 
       </main>
