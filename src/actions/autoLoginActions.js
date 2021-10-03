@@ -21,8 +21,8 @@ export const autoLoginTokenRequest = (email, token) => async (dispatch) => {
       }
     }
 
-    const { data } = await axios.post('http://127.0.0.1:8000/auth/token/',
-      { 'email': email,  'token': token }, config
+    const { data } = await axios.post(' /auth/token/',
+      { 'email': email, 'token': token }, config
     )
 
     dispatch({

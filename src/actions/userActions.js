@@ -49,7 +49,7 @@ export const loginTokenRequest = (email) => async (dispatch) => {
       }
     }
 
-    const { data } = await axios.post('http://127.0.0.1:8000/auth/email/',
+    const { data } = await axios.post('/auth/email/',
       { 'email': email }, config
     )
 
@@ -83,7 +83,7 @@ export const mobileLoginTokenRequest = (mobile) => async (dispatch) => {
       }
     }
 
-    const { data } = await axios.post('http://127.0.0.1:8000/auth/mobile/',
+    const { data } = await axios.post('/auth/mobile/',
       { 'mobile': mobile }, config
     )
 
@@ -117,8 +117,8 @@ export const loginJwtTokenRequest = (email, token) => async (dispatch) => {
       }
     }
 
-    const { data } = await axios.post('http://127.0.0.1:8000/auth/token/',
-      { 'email': email,  'token': token }, config
+    const { data } = await axios.post('/auth/token/',
+      { 'email': email, 'token': token }, config
     )
 
     dispatch({
@@ -150,8 +150,8 @@ export const loginMobileJwtTokenRequest = (mobile, token) => async (dispatch) =>
       }
     }
 
-    const { data } = await axios.post('http://127.0.0.1:8000/auth/token/',
-      { 'mobile': mobile,  'token': token }, config
+    const { data } = await axios.post('/auth/token/',
+      { 'mobile': mobile, 'token': token }, config
     )
 
     dispatch({
@@ -183,7 +183,7 @@ export const register = (username, email, mobile) => async (dispatch) => {
       }
     }
 
-    const { data } = await axios.post('http://127.0.0.1:8000/api/users/register/',
+    const { data } = await axios.post('/api/users/register/',
       { 'username': username, 'email': email, 'mobile': mobile }, config
     )
 
@@ -236,7 +236,7 @@ export const getUserDetails = () => async (dispatch, getState) => {
       }
     }
 
-    const { data } = await axios.get(`http://127.0.0.1:8000/api/users/details/`,
+    const { data } = await axios.get(`/api/users/details/`,
       config
     )
 
@@ -274,8 +274,8 @@ export const emailVerifyRequest = (id) => async (dispatch) => {
       }
     }
 
-    const { data } = await axios.patch(`http://127.0.0.1:8000/api/users/activate/${id}/`,
-       config
+    const { data } = await axios.patch(`/api/users/activate/${id}/`,
+      config
     )
 
     dispatch({
