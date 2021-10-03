@@ -5,6 +5,7 @@ import {
   userLoginReducer,
   mobileLoginReducer,
   userTokenReducer,
+  mobileTokenReducer,
   userRegisterReducer,
   userDetailsReducer,
   emailVerifyReducer
@@ -19,6 +20,7 @@ const reducer = combineReducers({
   userDetails: userDetailsReducer,
   emailVerify:emailVerifyReducer,
   mobileLogin:mobileLoginReducer,
+  mobileToken:mobileTokenReducer,
 
 })
 
@@ -31,6 +33,7 @@ const userFromStorage = localStorage.getItem('user') ?
 
 const initialState = {
   userToken: { jwt: jwtFromStorage },
+  mobileToken: { jwt: jwtFromStorage },
   userDetails: { user: userFromStorage },
 }
 

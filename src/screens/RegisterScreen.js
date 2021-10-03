@@ -71,7 +71,7 @@ function RegisterScreen({ location, history }) {
           <Form.Control
             required
             type=''
-            placeholder='Enter mobile number in the forma (+254)'
+            placeholder='Enter mobile number in the format (+254)'
             value={mobile}
             onChange={(e) => setMobile(e.target.value)}
           ></Form.Control>

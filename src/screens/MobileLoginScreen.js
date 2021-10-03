@@ -36,7 +36,7 @@ function LoginScreen({ location, history }) {
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(mobileLoginTokenRequest(mobile,))
-    history.push(`/token/?mobile=${mobile}`)
+    history.push(`/mobiletoken/?mobile=${mobile}`)
     
 
 
@@ -56,7 +56,7 @@ function LoginScreen({ location, history }) {
           <Form.Control
             required
             type=''
-            placeholder='Enter mobile number in the forma (+254)'
+            placeholder='Enter mobile number in the format (+254)'
             value={mobile}
             onChange={(e) => setMobile(e.target.value)}
           ></Form.Control>

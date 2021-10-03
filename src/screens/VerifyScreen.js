@@ -23,7 +23,7 @@ function VerifyScreen({ location, history }) {
     dispatch(emailVerifyRequest(id))
     setMessage(verifyDetails)
   
-  }, [dispatch,history,])
+  }, [dispatch,history,id,verifyDetails])
 
   return (
     <div>

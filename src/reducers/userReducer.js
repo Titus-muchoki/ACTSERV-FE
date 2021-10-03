@@ -5,6 +5,11 @@ import {
 
   USER_LOGOUT,
 
+  
+  MOBILE_LOGIN_REQUEST,
+  MOBILE_LOGIN_SUCCESS,
+  MOBILE_LOGIN_FAIL,
+
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
   USER_REGISTER_FAIL,
@@ -14,9 +19,11 @@ import {
   USER_TOKEN_SUCCESS,
   USER_TOKEN_FAIL,
 
-  MOBILE_LOGIN_REQUEST,
-  MOBILE_LOGIN_SUCCESS,
-  MOBILE_LOGIN_FAIL,
+
+  MOBILE_TOKEN_REQUEST,
+  MOBILE_TOKEN_SUCCESS,
+  MOBILE_TOKEN_FAIL,
+
 
   USER_DETAILS_REQUEST,
   USER_DETAILS_SUCCESS,
@@ -86,6 +93,30 @@ export const userTokenReducer = (state = {}, action) => {
       return { loading: false, jwt: action.payload }
 
     case USER_TOKEN_FAIL:
+      return { loading: false, error: action.payload }
+
+
+
+    default:
+      return state
+
+
+
+  }
+}
+
+
+
+
+export const mobileTokenReducer = (state = {}, action) => {
+  switch (action.type) {
+    case MOBILE_TOKEN_REQUEST:
+      return { loading: true }
+
+    case MOBILE_TOKEN_SUCCESS:
+      return { loading: false, jwt: action.payload }
+
+    case MOBILE_TOKEN_FAIL:
       return { loading: false, error: action.payload }
 
 

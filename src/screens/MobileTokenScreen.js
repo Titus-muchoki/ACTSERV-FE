@@ -1,37 +1,36 @@
 import React, { useState, useEffect } from 'react'
-import {  Button, Form } from 'react-bootstrap'
+import { Button, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/loader'
 import Message from '../components/message'
 import FormContainer from '../components/FormContainer'
-import { loginJwtTokenRequest } from '../actions/userActions'
-
-
-function TokenScreen({ location, history }) {
+import { loginMobileJwtTokenRequest } from '../actions/userActions'
+function MobileTokenScreen({ location, history }) {
   const [token, setToken] = useState('')
+  
+  const redirect = location.search ? location.search.split('=')[1] : '/'
 
-const email = location.search ? String(location.search.split('=')[1]) : null
+  const mobile = location.search ? String(location.search.split('=')[1]) : null
 
   const dispatch = useDispatch()
 
-  const redirect = location.search ? location.search.split('=')[1] : '/'
 
-  const userToken = useSelector(state => state.userToken)
+  const mobileToken = useSelector(state => state.mobileToken)
 
-  const { error, loading, jwt } = userToken
-
-
+  const { error, loading, jwt } = mobileToken
 
 
   useEffect(() => {
     if (jwt) {
-      history.push(redirect)
+      window.location.href = "http://localhost:3000/";
     }
   }, [history, jwt, redirect])
 
+
   const submitHandler = (e) => {
     e.preventDefault()
-    dispatch(loginJwtTokenRequest(email,token))
+    dispatch(loginMobileJwtTokenRequest(mobile, token))
+
 
 
 
@@ -67,4 +66,4 @@ const email = location.search ? String(location.search.split('=')[1]) : null
   )
 }
 
-export default TokenScreen
+export default MobileTokenScreen

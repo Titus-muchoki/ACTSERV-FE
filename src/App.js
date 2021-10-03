@@ -6,6 +6,7 @@ import HomeScreen from './screens/HomeScreen'
 import LoginScreen from './screens/LoginScreen'
 import MobileLoginScreen from './screens/MobileLoginScreen'
 import TokenScreen from './screens/TokenScreen'
+import MobileTokenScreen from './screens/MobileTokenScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import WaitEmailScreen from './screens/WaitEmailScreen'
 import VerifyScreen from './screens/VerifyScreen'
@@ -19,6 +20,7 @@ function App() {
         <Route path='/login' component={LoginScreen}  />
         <Route path='/mobilelogin' component={MobileLoginScreen}  />
         <Route path='/token' component={TokenScreen}  />
+        <Route path='/mobiletoken' component={MobileTokenScreen}  />
         <Route path='/register' component={RegisterScreen}  />
         <Route path='/emailcheck' component={WaitEmailScreen}  />
         <Route path='/verifyemail/:id?' component={VerifyScreen}  />

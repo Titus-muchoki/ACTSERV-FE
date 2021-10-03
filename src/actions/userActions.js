@@ -19,6 +19,11 @@ import {
   USER_TOKEN_SUCCESS,
   USER_TOKEN_FAIL,
 
+
+  MOBILE_TOKEN_REQUEST,
+  MOBILE_TOKEN_SUCCESS,
+  MOBILE_TOKEN_FAIL,
+
   USER_DETAILS_REQUEST,
   USER_DETAILS_SUCCESS,
   USER_DETAILS_FAIL,
@@ -113,7 +118,7 @@ export const loginJwtTokenRequest = (email, token) => async (dispatch) => {
     }
 
     const { data } = await axios.post('http://127.0.0.1:8000/auth/token/',
-      { 'email': email, 'token': token }, config
+      { 'email': email,  'token': token }, config
     )
 
     dispatch({
@@ -133,7 +138,38 @@ export const loginJwtTokenRequest = (email, token) => async (dispatch) => {
   }
 }
 
+export const loginMobileJwtTokenRequest = (mobile, token) => async (dispatch) => {
+  try {
+    dispatch({
+      type: MOBILE_TOKEN_REQUEST
+    })
 
+    const config = {
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }
+
+    const { data } = await axios.post('http://127.0.0.1:8000/auth/token/',
+      { 'mobile': mobile,  'token': token }, config
+    )
+
+    dispatch({
+      type: MOBILE_TOKEN_SUCCESS,
+      payload: data
+    })
+    localStorage.setItem('jwt', JSON.stringify(data))
+
+  } catch (error) {
+    dispatch({
+      type: MOBILE_TOKEN_FAIL,
+      payload: error.response && error.response.data.detail
+        ? error.response.data.detail
+        : error.message,
+
+    })
+  }
+}
 
 export const register = (username, email, mobile) => async (dispatch) => {
   try {
