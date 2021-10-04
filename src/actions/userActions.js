@@ -172,7 +172,7 @@ export const loginMobileJwtTokenRequest = (mobile, token) => async (dispatch) =>
   }
 }
 
-export const register = (username, email, mobile) => async (dispatch ,{history}) => {
+export const register = (username, email, mobile) => async (dispatch) => {
   try {
     dispatch({
       type: USER_REGISTER_REQUEST
