@@ -19,7 +19,7 @@ function LoginScreen({ location, history }) {
 
   const userLogin = useSelector(state => state.userLogin)
 
-  const { error, loading, } = userLogin
+  const { error, loading,success } = userLogin
 
 
   const userToken = useSelector(state => state.userToken)
@@ -30,13 +30,15 @@ function LoginScreen({ location, history }) {
   useEffect(() => {
     if (jwt) {
       history.push(redirect)
+    } else if (success){
+      history.push(`/token/?email=${email}`)
+
     }
-  }, [history, jwt, redirect])
+  }, [history, jwt, redirect,success,email])
 
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(loginTokenRequest(email,))
-    history.push(`/token/?email=${email}`)
     localStorage.setItem('email', JSON.stringify(email))    
 
 

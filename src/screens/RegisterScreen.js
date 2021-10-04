@@ -1,4 +1,4 @@
-import React, { useState,  } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Row, Col, Button, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -21,15 +21,22 @@ function RegisterScreen({ location, history }) {
 
   const userRegister = useSelector(state => state.userRegister)
 
-  const { error, loading, } = userRegister
+  const { error, loading, success } = userRegister
 
 
+
+
+  useEffect(() => {
+    if (success) {
+      history.push('/emailcheck')
+    }
+  }, [history,success])
 
 
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(register(username, email, mobile))
-    history.push('/emailcheck')
+    
 
   }
 

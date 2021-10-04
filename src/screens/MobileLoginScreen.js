@@ -19,7 +19,7 @@ function LoginScreen({ location, history }) {
 
   const mobileLogin = useSelector(state => state.mobileLogin)
 
-  const { error, loading, } = mobileLogin
+  const { error, loading,success } = mobileLogin
 
 
   const userToken = useSelector(state => state.userToken)
@@ -30,13 +30,15 @@ function LoginScreen({ location, history }) {
   useEffect(() => {
     if (jwt) {
       history.push(redirect)
+    }else if (success){
+      history.push(`/mobiletoken/?mobile=${mobile}`)
+
     }
-  }, [history, jwt, redirect])
+  }, [history, jwt, redirect,success,mobile])
 
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(mobileLoginTokenRequest(mobile,))
-    history.push(`/mobiletoken/?mobile=${mobile}`)
     
 
 

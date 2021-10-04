@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
@@ -171,7 +172,7 @@ export const loginMobileJwtTokenRequest = (mobile, token) => async (dispatch) =>
   }
 }
 
-export const register = (username, email, mobile) => async (dispatch) => {
+export const register = (username, email, mobile) => async (dispatch ,{history}) => {
   try {
     dispatch({
       type: USER_REGISTER_REQUEST
