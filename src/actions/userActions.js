@@ -192,9 +192,6 @@ export const register = (username, email, mobile) => async (dispatch) => {
       payload: data
     })
 
-
-
-
   } catch (error) {
     dispatch({
       type: USER_REGISTER_FAIL,

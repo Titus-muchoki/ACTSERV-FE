@@ -1,6 +1,6 @@
 import React from 'react'
-
 function WaitEmailScreen() {
+
   return (
     <div>
       <h5>Please check Your Email and follow the link in it to verify your account</h5>

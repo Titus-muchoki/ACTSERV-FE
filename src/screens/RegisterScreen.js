@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState,  } from 'react'
 import { Link } from 'react-router-dom'
 import { Row, Col, Button, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -29,6 +29,7 @@ function RegisterScreen({ location, history }) {
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(register(username, email, mobile))
+    history.push('/emailcheck')
 
   }
 

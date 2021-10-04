@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/loader'
 import Message from '../components/message'
 import { autoLoginTokenRequest  } from '../actions/autoLoginActions'
-import { Redirect } from 'react-router'
 
 
 function AutoLoginScreen({ location, history }) {
@@ -28,7 +27,7 @@ function AutoLoginScreen({ location, history }) {
     }else{
       dispatch(autoLoginTokenRequest(email,token))
     }
-  }, [history, jwt, redirect])
+  }, [history,dispatch, jwt, redirect,email,token])
 
  
   return (

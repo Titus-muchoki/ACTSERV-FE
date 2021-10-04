@@ -19,7 +19,7 @@ function LoginScreen({ location, history }) {
 
   const mobileLogin = useSelector(state => state.mobileLogin)
 
-  const { error, loading, details,success } = mobileLogin
+  const { error, loading, } = mobileLogin
 
 
   const userToken = useSelector(state => state.userToken)
