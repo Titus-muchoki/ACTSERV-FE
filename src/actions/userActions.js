@@ -192,6 +192,7 @@ export const register = (username, email, mobile) => async (dispatch) => {
       payload: data
     })
 
+    history.push('/emailcheck')
 
 
 
