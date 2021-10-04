@@ -29,9 +29,8 @@ function RegisterScreen({ location, history }) {
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(register(username, email, mobile))
-    if(!error){
     history.push('/emailcheck')
-    }
+
   }
 
 

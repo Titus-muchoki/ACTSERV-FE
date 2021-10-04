@@ -21,7 +21,7 @@ export const autoLoginTokenRequest = (email, token) => async (dispatch) => {
       }
     }
 
-    const { data } = await axios.post(' /auth/token/',
+    const { data } = await axios.post('https://actservbe.herokuapp.com/auth/token/',
       { 'email': email, 'token': token }, config
     )
 

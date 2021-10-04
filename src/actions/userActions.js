@@ -49,7 +49,7 @@ export const loginTokenRequest = (email) => async (dispatch) => {
       }
     }
 
-    const { data } = await axios.post('/auth/email/',
+    const { data } = await axios.post('https://actservbe.herokuapp.com/auth/email/',
       { 'email': email }, config
     )
 
@@ -83,7 +83,7 @@ export const mobileLoginTokenRequest = (mobile) => async (dispatch) => {
       }
     }
 
-    const { data } = await axios.post('/auth/mobile/',
+    const { data } = await axios.post('https://actservbe.herokuapp.com/auth/mobile/',
       { 'mobile': mobile }, config
     )
 
@@ -117,7 +117,7 @@ export const loginJwtTokenRequest = (email, token) => async (dispatch) => {
       }
     }
 
-    const { data } = await axios.post('/auth/token/',
+    const { data } = await axios.post('https://actservbe.herokuapp.com/auth/token/',
       { 'email': email, 'token': token }, config
     )
 
@@ -150,7 +150,7 @@ export const loginMobileJwtTokenRequest = (mobile, token) => async (dispatch) =>
       }
     }
 
-    const { data } = await axios.post('/auth/token/',
+    const { data } = await axios.post('https://actservbe.herokuapp.com/auth/token/',
       { 'mobile': mobile, 'token': token }, config
     )
 
@@ -183,7 +183,7 @@ export const register = (username, email, mobile) => async (dispatch) => {
       }
     }
 
-    const { data } = await axios.post('/api/users/register/',
+    const { data } = await axios.post('https://actservbe.herokuapp.com/api/users/register/',
       { 'username': username, 'email': email, 'mobile': mobile }, config
     )
 
@@ -236,7 +236,7 @@ export const getUserDetails = () => async (dispatch, getState) => {
       }
     }
 
-    const { data } = await axios.get(`/api/users/details/`,
+    const { data } = await axios.get(`https://actservbe.herokuapp.com/api/users/details/`,
       config
     )
 
@@ -274,7 +274,7 @@ export const emailVerifyRequest = (id) => async (dispatch) => {
       }
     }
 
-    const { data } = await axios.patch(`/api/users/activate/${id}/`,
+    const { data } = await axios.patch(`https://actservbe.herokuapp.com/api/users/activate/${id}/`,
       config
     )
 
