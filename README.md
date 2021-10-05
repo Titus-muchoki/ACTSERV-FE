@@ -1,3 +1,31 @@
+#  ACTSERV frontend
+
+#### This a frontend for passwordless authentication,  09/06/2021
+
+#### By **Eston Kagwima**
+
+## Description
+This is a front end created with react that connencts to a django rest API  to enable a user to login without using a password instead, a token is sent to them in their email or mobile number depending on the one they choose to log in with. Upon registration a user is also sent a confirmation email to verify their email address
+
+
+### User stories Specification
+- When a user enters their email or phone number Django should detect if a user exists or not.
+
+- If the user exists with that email it sends them both an OTP and a magic link with the URL having both a OTP and the user email;
+
+- For an existing user, after the user enters their email or phone number, it should redirect them to enter the OTP;
+
+- For a new user, it should prompt the user to confirm their new account creation details then send out the same, OTP for phone number registration and both OTP and magic link for an email account registration;
+
+- For users using their phone number it sends only the OTP.
+
+
+- It uses the sent back credentials either OTP or URL to create JWT which will be used  to authenticate the user. The magic link  automatically logs in the user.
+
+ - Twillio account is usedfor sending out the SMS OTP.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -39,32 +67,16 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## link to live site on heroku
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Support and contact details
 
-### Code Splitting
+| Eston | ekagwima745@gmail.com |
+| ----- | --------------------- |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### License
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+License
+[MIT License](https://choosealicense.com/licenses/mit/)
+Copyright (c) 2021 Eston Kagwima
